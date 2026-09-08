@@ -11,64 +11,98 @@ export default function Home() {
     <>
       <LocalBusinessSchema />
       
-      {/* SECTION 1 - HERO (FinRise SaaS Inspired) */}
-      <section className="relative min-h-[100vh] flex flex-col items-center justify-center bg-background overflow-hidden pt-32 pb-20">
+      {/* SECTION 1 - HERO (FinRise SaaS Inspired + GHL Quote Form) */}
+      <section className="relative min-h-[90vh] flex items-center bg-background overflow-hidden border-b border-border">
         
         {/* Ambient Lighting & Grid Background */}
         <div className="absolute inset-0 bg-radial-gradient z-0 pointer-events-none" />
         <div className="absolute inset-0 bg-grid opacity-30 z-0 pointer-events-none" />
         
-        <div className="container relative z-10 flex flex-col items-center text-center animate-fade-up">
+        <div className="container relative z-10 flex flex-col lg:flex-row items-center gap-12 lg:gap-8 pt-32 pb-20">
           
-          {/* Social Proof Pill Badge */}
-          {siteConfig.reviews?.aggregateRating && (
-            <div className="mb-8 inline-flex items-center gap-2 bg-white border border-border shadow-sm rounded-full px-4 py-1.5 transform hover:scale-105 transition-transform cursor-default">
-              <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
-              <span className="text-xs font-bold text-foreground">
-                Google & Trustpilot <span className="text-amber-500">★★★★★</span> {siteConfig.reviews.aggregateRating} Rating
-              </span>
-            </div>
-          )}
-          
-          {/* High-Impact Headline */}
-          <h1 className="max-w-4xl text-[3.5rem] md:text-[5rem] lg:text-[6rem] font-extrabold leading-[1.05] tracking-tight text-primary mb-6">
-            Transform Spaces Into <br className="hidden md:block" />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">
-              Lasting Elegance
-            </span>
-          </h1>
-          
-          {/* Subheadline */}
-          <p className="text-lg md:text-xl text-muted-foreground font-medium leading-relaxed max-w-2xl mb-10">
-            Turning complex architectural glass visions into seamless reality. 
-            We engineer transparency, guiding you every step of the way so you can focus on the design, not the stress.
-          </p>
-          
-          {/* Dual CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 w-full sm:w-auto">
-            <Button size="lg" asChild className="rounded-full w-full sm:w-auto px-8 h-14 text-base shadow-xl shadow-indigo-500/20 hover:shadow-indigo-500/40 transition-all hover:-translate-y-0.5">
-              <Link href="/request-a-quote">
-                Start Your Project <ArrowRight className="ml-2 w-5 h-5" />
-              </Link>
-            </Button>
+          {/* Left Column: Copy & CTAs */}
+          <div className="flex-1 flex flex-col items-center lg:items-start text-center lg:text-left animate-fade-up">
             
-            <Button size="lg" variant="outline" asChild className="rounded-full w-full sm:w-auto px-8 h-14 text-base border-border/60 bg-white/50 backdrop-blur-sm hover:bg-white transition-all hover:-translate-y-0.5">
-              <Link href="/projects" className="group">
-                <div className="flex items-center justify-center w-6 h-6 rounded-full bg-indigo-100 mr-2 group-hover:bg-indigo-200 transition-colors">
-                  <Play className="w-3 h-3 text-indigo-700 ml-0.5" />
-                </div>
-                Watch Showcase
-              </Link>
-            </Button>
+            {/* Social Proof Pill Badge */}
+            {siteConfig.reviews?.aggregateRating && (
+              <div className="mb-8 inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-border shadow-sm rounded-full px-4 py-1.5 transform hover:scale-105 transition-transform cursor-default">
+                <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
+                <span className="text-xs font-bold text-foreground">
+                  Google & Trustpilot <span className="text-amber-500">★★★★★</span> {siteConfig.reviews.aggregateRating} Rating
+                </span>
+              </div>
+            )}
+            
+            {/* High-Impact Headline */}
+            <h1 className="text-[3rem] md:text-[4.5rem] lg:text-[5rem] font-extrabold leading-[1.05] tracking-tight text-primary mb-6">
+              Transform Spaces Into <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-purple-600">
+                Lasting Elegance
+              </span>
+            </h1>
+            
+            {/* Subheadline */}
+            <p className="text-lg md:text-xl text-muted-foreground font-medium leading-relaxed max-w-lg mb-10">
+              Turning complex architectural glass visions into seamless reality. 
+              We engineer transparency, guiding you every step of the way so you can focus on the design.
+            </p>
+            
+            {/* Dual CTA Buttons */}
+            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 w-full sm:w-auto">
+              <Button size="lg" asChild className="rounded-full w-full sm:w-auto px-8 h-14 text-base shadow-xl shadow-indigo-500/20 hover:shadow-indigo-500/40 transition-all hover:-translate-y-0.5">
+                <Link href="/request-a-quote">
+                  Start Your Project <ArrowRight className="ml-2 w-5 h-5" />
+                </Link>
+              </Button>
+              
+              <Button size="lg" variant="outline" asChild className="rounded-full w-full sm:w-auto px-8 h-14 text-base border-border/60 bg-white/50 backdrop-blur-sm hover:bg-white transition-all hover:-translate-y-0.5">
+                <Link href="/projects" className="group">
+                  <div className="flex items-center justify-center w-6 h-6 rounded-full bg-indigo-100 mr-2 group-hover:bg-indigo-200 transition-colors">
+                    <Play className="w-3 h-3 text-indigo-700 ml-0.5" />
+                  </div>
+                  Watch Showcase
+                </Link>
+              </Button>
+            </div>
+          </div>
+
+          {/* Right Column: GHL Quote Form Embed */}
+          <div className="w-full lg:w-[45%] lg:max-w-md animate-fade-up delay-200 relative">
+            <div className="relative bg-white/90 backdrop-blur-xl rounded-3xl border border-border/50 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] overflow-hidden p-6 md:p-8 transform hover:scale-[1.01] transition-transform">
+              <div className="absolute inset-0 bg-grid opacity-10 pointer-events-none" />
+              
+              <div className="relative z-10">
+                {/* GHL Form Embed or Fallback */}
+                {siteConfig.ghl?.heroFormEmbedCode && siteConfig.ghl.heroFormEmbedCode.includes('<') && !siteConfig.ghl.heroFormEmbedCode.includes('Paste your GHL') ? (
+                  <div 
+                    className="w-full bg-transparent"
+                    dangerouslySetInnerHTML={{ __html: siteConfig.ghl.heroFormEmbedCode }}
+                  />
+                ) : (
+                  <div className="w-full flex flex-col items-center justify-center space-y-6">
+                    <div className="text-center space-y-2">
+                      <span className="text-secondary font-bold tracking-[0.2em] uppercase text-xs">GHL Lead Capture</span>
+                      <h3 className="text-2xl font-bold text-foreground">Request a Quote</h3>
+                      <p className="text-muted-foreground text-sm">Paste your GHL Form Embed Code into siteConfig.ts to replace this skeleton.</p>
+                    </div>
+                    <div className="space-y-4 pt-4 w-full opacity-40">
+                      <div className="h-12 w-full bg-muted border border-border rounded-xl" />
+                      <div className="h-12 w-full bg-muted border border-border rounded-xl" />
+                      <div className="h-24 w-full bg-muted border border-border rounded-xl" />
+                      <div className="h-12 w-full bg-primary rounded-xl" />
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
           </div>
 
         </div>
-
-        {/* Interactive Dashboard / Showcase Mockup */}
-        <div className="container mt-16 lg:mt-24 relative z-20 animate-fade-up delay-200">
+        
+        {/* Interactive Dashboard / Showcase Mockup - Full Width Below Hero */}
+        <div className="container mt-12 mb-20 relative z-20 animate-fade-up delay-300">
           <ArchitecturalShowcase />
         </div>
-        
       </section>
 
       {/* SECTION 2 - STATS / TRUST */}
