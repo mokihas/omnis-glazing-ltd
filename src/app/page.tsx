@@ -14,14 +14,39 @@ export default function Home() {
       {/* SECTION 1 - HERO (FinRise SaaS Inspired + GHL Quote Form) */}
       <section className="relative min-h-[90vh] flex items-center bg-background overflow-hidden border-b border-border">
         
-        {/* Ambient Lighting & Grid Background */}
-        <div className="absolute inset-0 bg-radial-gradient z-0 pointer-events-none" />
-        <div className="absolute inset-0 bg-grid opacity-30 z-0 pointer-events-none" />
         
-        <div className="container relative z-10 flex flex-col lg:flex-row items-center gap-12 lg:gap-8 pt-32 pb-20">
-          
-          {/* Left Column: Copy & CTAs */}
-          <div className="flex-1 flex flex-col items-center lg:items-start text-center lg:text-left animate-fade-up">
+        {/* Right Side GHL Embed or Fallback */}
+        <div className="absolute inset-0 w-full h-full lg:w-[45%] lg:left-auto lg:right-0 bg-muted/50 z-0 flex items-center justify-center border-l border-border">
+          <div className="absolute inset-0 bg-grid opacity-10 pointer-events-none" />
+          {siteConfig.ghl?.heroFormEmbedCode && siteConfig.ghl.heroFormEmbedCode.includes('<') && !siteConfig.ghl.heroFormEmbedCode.includes('Paste your GHL') ? (
+            <div 
+              className="w-full h-full bg-white/80 backdrop-blur-sm flex items-center justify-center p-8 lg:p-12 overflow-y-auto relative z-10"
+              dangerouslySetInnerHTML={{ __html: siteConfig.ghl.heroFormEmbedCode }}
+            />
+          ) : (
+            <div className="w-full h-full bg-white/80 backdrop-blur-sm flex flex-col items-center justify-center p-8 lg:p-16 relative z-10">
+              <div className="w-full max-w-md space-y-6">
+                <div className="text-center space-y-2">
+                  <span className="text-secondary font-bold tracking-[0.2em] uppercase text-xs">GHL Lead Capture</span>
+                  <h3 className="text-2xl font-bold text-foreground">Request a Quote</h3>
+                  <p className="text-muted-foreground text-sm">Paste your GHL Form Embed Code into siteConfig.ts to replace this skeleton.</p>
+                </div>
+                <div className="space-y-4 pt-4 opacity-40">
+                  <div className="h-12 w-full bg-muted border border-border rounded-xl" />
+                  <div className="h-12 w-full bg-muted border border-border rounded-xl" />
+                  <div className="h-24 w-full bg-muted border border-border rounded-xl" />
+                  <div className="h-12 w-full bg-primary rounded-xl" />
+                </div>
+              </div>
+            </div>
+          )}
+           <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent lg:block hidden pointer-events-none z-20" />
+           <div className="absolute inset-0 bg-background/90 lg:hidden block pointer-events-none z-20" />
+        </div>
+        
+        {/* Left Side Copy & CTAs */}
+        <div className="container relative z-10 animate-fade-up">
+          <div className="max-w-2xl flex flex-col items-start text-left pt-12 pb-12">
             
             {/* Social Proof Pill Badge */}
             {siteConfig.reviews?.aggregateRating && (
@@ -48,7 +73,7 @@ export default function Home() {
             </p>
             
             {/* Dual CTA Buttons */}
-            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 w-full sm:w-auto">
+            <div className="flex flex-col sm:flex-row items-center justify-start gap-4 w-full sm:w-auto">
               <Button size="lg" asChild className="rounded-full w-full sm:w-auto px-8 h-14 text-base shadow-xl shadow-indigo-500/20 hover:shadow-indigo-500/40 transition-all hover:-translate-y-0.5">
                 <Link href="/request-a-quote">
                   Start Your Project <ArrowRight className="ml-2 w-5 h-5" />
@@ -65,43 +90,6 @@ export default function Home() {
               </Button>
             </div>
           </div>
-
-          {/* Right Column: GHL Quote Form Embed */}
-          <div className="w-full lg:w-[45%] lg:max-w-md animate-fade-up delay-200 relative">
-            <div className="relative bg-white/90 backdrop-blur-xl rounded-3xl border border-border/50 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)] overflow-hidden p-6 md:p-8 transform hover:scale-[1.01] transition-transform">
-              <div className="absolute inset-0 bg-grid opacity-10 pointer-events-none" />
-              
-              <div className="relative z-10">
-                {/* GHL Form Embed or Fallback */}
-                {siteConfig.ghl?.heroFormEmbedCode && siteConfig.ghl.heroFormEmbedCode.includes('<') && !siteConfig.ghl.heroFormEmbedCode.includes('Paste your GHL') ? (
-                  <div 
-                    className="w-full bg-transparent"
-                    dangerouslySetInnerHTML={{ __html: siteConfig.ghl.heroFormEmbedCode }}
-                  />
-                ) : (
-                  <div className="w-full flex flex-col items-center justify-center space-y-6">
-                    <div className="text-center space-y-2">
-                      <span className="text-secondary font-bold tracking-[0.2em] uppercase text-xs">GHL Lead Capture</span>
-                      <h3 className="text-2xl font-bold text-foreground">Request a Quote</h3>
-                      <p className="text-muted-foreground text-sm">Paste your GHL Form Embed Code into siteConfig.ts to replace this skeleton.</p>
-                    </div>
-                    <div className="space-y-4 pt-4 w-full opacity-40">
-                      <div className="h-12 w-full bg-muted border border-border rounded-xl" />
-                      <div className="h-12 w-full bg-muted border border-border rounded-xl" />
-                      <div className="h-24 w-full bg-muted border border-border rounded-xl" />
-                      <div className="h-12 w-full bg-primary rounded-xl" />
-                    </div>
-                  </div>
-                )}
-              </div>
-            </div>
-          </div>
-
-        </div>
-        
-        {/* Interactive Dashboard / Showcase Mockup - Full Width Below Hero */}
-        <div className="container mt-12 mb-20 relative z-20 animate-fade-up delay-300">
-          <ArchitecturalShowcase />
         </div>
       </section>
 
