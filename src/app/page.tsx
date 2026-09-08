@@ -45,7 +45,7 @@ export default function Home() {
         
         {/* Left Side Copy & CTAs */}
         <div className="container relative z-10 animate-fade-up">
-          <div className="max-w-2xl flex flex-col items-start text-left pt-12 pb-12">
+          <div className="max-w-2xl flex flex-col items-start text-left pt-24 pb-12">
             
             {/* High-Impact Headline */}
             <h1 className="text-[3rem] md:text-[4.5rem] lg:text-[5rem] font-extrabold leading-[1.05] tracking-tight text-primary mb-6">
