@@ -47,16 +47,6 @@ export default function Home() {
         <div className="container relative z-10 animate-fade-up">
           <div className="max-w-2xl flex flex-col items-start text-left pt-12 pb-12">
             
-            {/* Social Proof Pill Badge */}
-            {siteConfig.reviews?.aggregateRating && (
-              <div className="mb-8 inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-border shadow-sm rounded-full px-4 py-1.5 transform hover:scale-105 transition-transform cursor-default">
-                <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
-                <span className="text-xs font-bold text-foreground">
-                  Google & Trustpilot <span className="text-amber-500">★★★★★</span> {siteConfig.reviews.aggregateRating} Rating
-                </span>
-              </div>
-            )}
-            
             {/* High-Impact Headline */}
             <h1 className="text-[3rem] md:text-[4.5rem] lg:text-[5rem] font-extrabold leading-[1.05] tracking-tight text-primary mb-6">
               Transform Spaces Into <br />
@@ -72,7 +62,7 @@ export default function Home() {
             </p>
             
             {/* Dual CTA Buttons */}
-            <div className="flex flex-col sm:flex-row items-center justify-start gap-4 w-full sm:w-auto">
+            <div className="flex flex-col sm:flex-row items-center justify-start gap-4 w-full sm:w-auto mb-12">
               <Button size="lg" asChild className="rounded-full w-full sm:w-auto px-8 h-14 text-base shadow-xl shadow-indigo-500/20 hover:shadow-indigo-500/40 transition-all hover:-translate-y-0.5">
                 <Link href="/request-a-quote">
                   Start Your Project <ArrowRight className="ml-2 w-5 h-5" />
@@ -88,6 +78,16 @@ export default function Home() {
                 </Link>
               </Button>
             </div>
+            
+            {/* Social Proof Pill Badge */}
+            {siteConfig.reviews?.aggregateRating && (
+              <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm border border-border shadow-sm rounded-full px-4 py-1.5 transform hover:scale-105 transition-transform cursor-default mt-auto">
+                <Star className="w-4 h-4 fill-amber-400 text-amber-400" />
+                <span className="text-xs font-bold text-foreground">
+                  Google & Trustpilot <span className="text-amber-500">★★★★★</span> {siteConfig.reviews.aggregateRating} Rating
+                </span>
+              </div>
+            )}
           </div>
         </div>
       </section>
