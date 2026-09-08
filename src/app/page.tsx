@@ -4,7 +4,6 @@ import { Button } from "@/components/ui/Button"
 import { ServiceCard } from "@/components/ui/ServiceCard"
 import { ArrowRight, Play, Star } from "lucide-react"
 import { LocalBusinessSchema } from "@/components/seo/LocalBusinessSchema"
-import { ArchitecturalShowcase } from "@/components/ui/ArchitecturalShowcase"
 
 export default function Home() {
   return (
