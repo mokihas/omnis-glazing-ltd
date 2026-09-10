@@ -3,11 +3,6 @@ import { CheckCircle2 } from "lucide-react"
 import { Button } from "@/components/ui/Button"
 import Link from "next/link"
 
-export const metadata = {
-  title: "About Us",
-  description: `Learn more about ${siteConfig.businessName}, your trusted local glass and glazing experts in ${siteConfig.city}.`,
-}
-
 export default function AboutPage() {
   return (
     <>
@@ -15,10 +10,10 @@ export default function AboutPage() {
         <div className="container">
           <div className="max-w-3xl space-y-4">
             <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground">
-              About {siteConfig.businessName !== "[BUSINESS NAME]" ? siteConfig.businessName : "Us"}
+              About {siteConfig.businessName}
             </h1>
             <p className="text-xl text-muted-foreground">
-              Your trusted local glazing experts, delivering quality and reliability since {siteConfig.yearEstablished}.
+              Your trusted local glazing experts, delivering quality and reliability.
             </p>
           </div>
         </div>
@@ -29,38 +24,23 @@ export default function AboutPage() {
           <div className="space-y-6">
             <h2 className="text-3xl font-bold">Our Story</h2>
             <div className="prose prose-lg dark:prose-invert">
-              <p>
-                Founded in {siteConfig.yearEstablished} by {siteConfig.founder}, {siteConfig.businessName} has grown to become one of the most trusted names in glass and glazing across {siteConfig.city}.
-              </p>
-              <p>
-                We believe in combining traditional craftsmanship with modern materials to deliver outstanding results for both residential and commercial clients. Whether it's a simple window replacement or a complex commercial shopfront, we approach every job with the same dedication to quality and safety.
-              </p>
+              <p>At Omnis Glazing Ltd, we cover all aspects of glass, whether implementing one single glazing solution or working on several projects in your home, we promise a stress-free experience, from your dynamic initial design right through to your satisfying end product. Boasting over 20 years of experience in all glazing fields, we can accommodate all your personal requirements, making us the ultimate one-stop-shop for all your needs. We’ve worked on a number of high-end and complex residential and commercial structural glazing projects, ensuring requirements and regulations are adhered to with seamless results.</p>
+              <p>Our bespoke, flexible range of glazing solutions include fire glass, external and internal glazing, office partitioning, feature glass, splashbacks, balustrades, shower screens and architectural glass.</p>
+              <p>Working alongside many trusted, skilled teams for several years means we have great experience in allocating the right qualified specialist to your project.</p>
+              <p>We’ve worked on a number of high-end and complex residential structural glazing projects, ensuring requirements and regulations are adhered to with seamless results.</p>
+              <p>For all enquiries please email, call, or complete our contact form. A team member is ready and waiting to discuss your project and find the right bespoke glazing solution for you. From design to completion, we will be with you every step of the way.</p>
+              <p>Boasting installation teams across the UK, no project is too far away.</p>
             </div>
             
-            <h3 className="text-xl font-bold mt-8">Our Guarantees</h3>
-            <ul className="space-y-3 mt-4">
-              {[
-                "Fully insured and qualified glaziers",
-                "Compliance with all safety standards",
-                "Clean, respectful working practices",
-                "Transparent, upfront pricing",
-              ].map((item, i) => (
-                <li key={i} className="flex gap-3 items-center">
-                  <CheckCircle2 className="h-5 w-5 text-primary shrink-0" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-
             <div className="pt-6">
                <Button size="lg" asChild>
-                 <Link href="/contact">Contact Our Team</Link>
+                 <Link href="/request-a-quote">Contact Our Team</Link>
                </Button>
             </div>
           </div>
           
-          <div className="aspect-[4/3] bg-muted rounded-lg border border-border flex flex-col items-center justify-center text-muted-foreground font-medium overflow-hidden">
-             <img src={siteConfig.aboutImage} alt="Our Glazing Team" className="w-full h-full object-cover" />
+          <div className="aspect-[4/3] bg-muted rounded-lg border border-border flex flex-col items-center justify-center overflow-hidden">
+             <img src="/images/pages/Omnis-Tight-Border-PNG-1920w.png" alt="Our Glazing Team" className="w-full h-full object-cover" />
           </div>
         </div>
       </section>
